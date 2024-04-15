@@ -7,6 +7,10 @@ import World from "../icons/World.astro"
 import SpringIcon from "../icons/Spring.astro"
 import SwaggerIcon from "../icons/Swagger.astro"
 import AmazonIcon from "../icons/Amazon.astro"
+import TypescriptIcon from "../icons/Typescript.astro"
+import ReactIcon from "../icons/React.astro"
+import PythonIcon from "../icons/Python.astro"
+
 const TAGS = {
     JAVA: {
         name: "Java",
@@ -14,31 +18,46 @@ const TAGS = {
         icon: JavaIcon
 
     },
-     POSTGRES: {
+    POSTGRES: {
         name: "PostgreSQL",
         class: "bg-white text-sky-800",
-          icon: DatabaseIcon
-     },
-     SPRING: {
+        icon: DatabaseIcon
+    },
+    SPRING: {
         name: "Spring Boot",
         class: "bg-green-600 text-white",
-          icon: SpringIcon
-     },
-     SWAGGER: {
+        icon: SpringIcon
+    },
+    SWAGGER: {
         name: "Swagger UI",
         class: "bg-blue-900 text-white",
-          icon: SwaggerIcon
-     },
-     AMAZON_1: {
+        icon: SwaggerIcon
+    },
+    AMAZON_1: {
         name: "AWS Elastic Beanstalk",
         class: "bg-red-900 text-white",
-          icon: AmazonIcon
-     },
-     AMAZON_2: {
+        icon: AmazonIcon
+    },
+    AMAZON_2: {
         name: "AMAZON RDS",
         class: "bg-red-900 text-white",
-          icon: AmazonIcon
-     }
+        icon: AmazonIcon
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-gray-600 text-white",
+        icon: TypescriptIcon
+    },
+    REACT: {
+        name: "React",
+        class: "bg-gray-600 text-white",
+        icon: ReactIcon
+    },
+    PYTHON: {
+        name: "Python",
+        class: "bg-yellow-600 text-white",
+        icon: PythonIcon
+    }
 }
 const PROJECTS =[
     {
@@ -48,48 +67,105 @@ const PROJECTS =[
         github: "https://github.com/JackSilverioC/application-java-spring",
         image: "/projects/project1.png",
         tags: [TAGS.JAVA, TAGS.POSTGRES, TAGS.SPRING, TAGS.SWAGGER, TAGS.AMAZON_1, TAGS.AMAZON_2]
-    }
+    },
+    {
+        title: "Task list",
+        description: "Lista de tareas usando Local Storage para la persistencia de datos utilizando TypeScript.",
+        link: "https://jacksilverioc.github.io/frontend-typescript/",
+        github: "https://github.com/JackSilverioC/frontend-typescript",
+        image: "/projects/project2.png",
+        tags: [TAGS.TYPESCRIPT]
+    },
+    {
+        title: "Expense Tracker",
+        description: "Seguimiento de ingreso y egreso de cantidades utilizando Local Storage y React.",
+        link: "https://jacksilverioc.github.io/expense-tracker-react/",
+        github: "https://github.com/JackSilverioC/expense-tracker-react",
+        image: "/projects/project3.png",
+        tags: [TAGS.REACT]
+    },
+    {
+        title: "Data analysis A",
+        description: "Análisis de los datos realizado a 'Bike store sales' usando numpy, pandas y matplotlib utilizando python 3.",
+        link: "https://colab.research.google.com/github/UsserJack/Data_Analysis_A/blob/main/data_analysis_a.ipynb",
+        github: "https://github.com/JackSilverioC/Data_Analysis_A/blob/main/data_analysis_a.ipynb",
+        image: "/projects/project4.png",
+        tags: [TAGS.PYTHON]
+    },
+    {
+        title: "Data analysis B",
+        description: "Análisis de los datos realizado a 'The Sakila Database' usando numpy, pandas, matplotlib y sqlite3 utilizando python 3.",
+        link: "https://colab.research.google.com/github/UsserJack/Data_Analysis_B/blob/main/Data_Analysis_B.ipynb",
+        github: "https://github.com/JackSilverioC/Data_Analysis_B/blob/main/Data_Analysis_B.ipynb",
+        image: "/projects/project5.png",
+        tags: [TAGS.PYTHON]
+    },
+    {
+        title: "Analizador de datos demográficos",
+        description: "Análisis de los datos demográficos usando Pandas de 'Adult Data' para crear una función que lo realice.",
+        link: "https://colab.research.google.com/github/UsserJack/Analizador-de-datos-demograficos/blob/main/Demographic_Data_Analyzer.ipynb",
+        github: "https://github.com/JackSilverioC/Analizador-de-datos-demograficos/blob/main/Demographic_Data_Analyzer.ipynb",
+        image: "/projects/project6.png",
+        tags: [TAGS.PYTHON]
+    },
 ]
 ---
 
-{PROJECTS.map(({github, link, image, title, description, tags }) => {
-    return (
-        <article>
-            <h3 class="text-2xl font-semibold text-blue-400/90 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <div class="flex gap-x-3">
-                <a href={link} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110 transition" rel="noopener noreferrer" target="_blank">
-                <World class="size-4 md:w-6 md:h-6"/><span class="ml-1">Abrir aplicación</span>
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-                </a>
-                <a href={github} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700/90 rounded-lg hover:bg-slate-600/90 focus:ring-4 focus:outline-none focus:ring-blue-300 hover:scale-110 transition" rel="noopener noreferrer" target="_blank">
-                <Github class="size-4 md:w-6 md:h-6"/><span class="ml-1">Abrir repositorio GitHub</span>
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <ul class="flex gap-x-2 flex-row flex-wrap items-center mt-6">
-                {
-                    tags.map(tag => {
-                        return (
-                            <li>
-                                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 hover:text-white hover:bg-gray-700`}>
-                                    <tag.icon class="size-4"/>{tag.name}
-                                </span>    
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-            <a href="http://market-app.us-east-2.elasticbeanstalk.com/market-app/api/swagger-ui/index.html" rel="noopener noreferrer" target="_blank"><img class="hover:scale-105 transition rounded shadow-2xl shadow-white/10 mt-6" src={image} alt={title} /></a>
-            
-        </article>
-    );
-})}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        
+    </head>
+
+    <body>
+        <div class="grid gap-y-10">
+        {PROJECTS.map(({github, link, image, title, description, tags }) => {
+            return (
+                <article>
+                
+                    <h3 class="text-2xl font-semibold text-blue-400/90 mb-2">{title}</h3>
+                    <p class="text-lg mb-4 text-pretty">{description}</p>
+                    <div class="flex gap-x-3">
+                        <a href={link} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110 transition" rel="noopener noreferrer" target="_blank">
+                        <World class="size-4 md:w-6 md:h-6"/><span class="ml-1">Abrir aplicación</span>
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                        </a>
+                        <a href={github} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700/90 rounded-lg hover:bg-slate-600/90 focus:ring-4 focus:outline-none focus:ring-blue-300 hover:scale-110 transition" rel="noopener noreferrer" target="_blank">
+                        <Github class="size-4 md:w-6 md:h-6"/><span class="ml-1">Abrir repositorio GitHub</span>
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <ul class="flex gap-x-2 flex-row flex-wrap items-center mt-6">
+                        {
+                            tags.map(tag => {
+                                return (
+                                    <li>
+                                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 hover:text-white hover:bg-gray-700`}>
+                                            <tag.icon class="size-4"/>{tag.name}
+                                        </span>    
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                    <a href={link} rel="noopener noreferrer" target="_blank"><img class="hover:scale-105 transition rounded shadow-2xl shadow-white/10 mt-6" src={image} alt={title} /></a>
+                    
+                </article>
+            );
+        })}
+        </div>
+        
+    </body>
+</html>
+
+
 
 
 

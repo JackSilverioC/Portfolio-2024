@@ -1,0 +1,157 @@
+---
+import Footer from "../components/Footer.astro";
+
+const images = [
+  {
+    src: "/projects/microservices-app/RELATION_DB.png",
+    title: "Diagrama de la Relación de las entidades",
+    description:
+      "Este diagrama muestra cómo las tablas están relacionadas entre sí:",
+    class: "max-w-[70%] h-auto rounded-lg shadow-md"
+  },
+  {
+    src: "/projects/microservices-app/MICROSERVICE-DIAGRAM.png",
+    title: "Diagrama de los Microservicios",
+    description:
+      "Este diagrama describe cómo los microservicios interactúan entre sí dentro del sistema:",
+    class:
+      "max-w-[100%] h-auto shadow-md",
+    ul: [
+      "Servidor de Configuración: para centralizar y gestionar las configuraciones de los microservicios.",
+      "Servidor de Descubrimiento (Eureka): para registrar y descubrir los microservicios de manera dinámica.",
+      "API Gateway: para gestionar las solicitudes y redirigirlas a los microservicios correspondientes.",
+      "Comunicación Asíncrona con Kafka: para enviar mensajes entre microservicios de forma eficiente y desacoplada.",
+      "Comunicación Síncrona con OpenFeign y RestTemplates: para llamadas directas entre microservicios cuando se requiere una respuesta inmediata.",
+      "Trazabilidad Distribuida con Zipkin y Spring Actuator: para monitorear y rastrear solicitudes a través de múltiples microservicios.",
+      "Seguridad con Keycloak: para proteger las rutas de los microservicios con autenticación y autorización basada en OAuth2.",
+      "Infraestructura y Herramientas con Docker y Docker Compose: para crear contenedores y orquestar los servicios en un entorno local o de producción.",
+      "La persistencia de los datos se realiza en MongoDB y PostgreSQL principalmente."
+  ]
+  }
+  // Agrega más imágenes y descripciones según sea necesario
+];
+
+const videos = [
+  {
+    url: "https://drive.google.com/file/d/1AGp3xZn223WMQhylRFyyKjR8YEC2msIT/view?usp=sharing",
+    title: "Preparación del entorno - Parte 1",
+    thumbnail: "/projects/miniaturas/Min_1.png",
+    description: "Se levanta el archivo de docker-compose para crear los contenedores de las imágenes a utilizar. Asimismo se procede a levantar los servicios en un orden específico para su registro en Eureka Server."
+  },
+  {
+    url: "https://drive.google.com/file/d/1-0LpNnztPhQx16hZLMBBQeZ9UlO41T9Z/view?usp=sharing",
+    title: "API Gateway y Keycloak(Oauth 2.0) - Parte 2",
+    thumbnail: "/projects/miniaturas/Min_2.png",
+    description: "Toda solicitud será mediante el redireccionamiento del API Gateway creado, y la autenticación será mediante token obtenido por Keycloak(Oauth2)."
+  },
+  {
+    url: "https://drive.google.com/file/d/1uX5TE_R87vhP9TIzuHwErjhcXTdjwKMN/view?usp=sharing",
+    title: "Creación del cliente - Parte 3",
+    thumbnail: "/projects/miniaturas/Min_3.png",
+    description: "Creación del cliente y su persistencia en MongoDB"
+  },
+  {
+    url: "https://drive.google.com/file/d/1qrXEDl1Ac-EgEaqZUYmVUpyFwS6IkOQM/view?usp=sharing",
+    title: "Comunicación síncrona y asíncrona entre microservicios- Parte 4",
+    thumbnail: "/projects/miniaturas/Min_4.png",
+    description: 'Se configuró la comunicación síncrona por Feign (Token en el header incluido), y el consumo de "topics" usando Kafka. Para el envío de correos se usó MailDev y para el tracing de las solicitudes se usó Zipkin.'
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Documentación de Arquitectura</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="bg-neutral-950">
+    <div
+      class="absolute top-0 z-[-2] h-screen w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <main class="max-w-7xl mx-auto p-8">
+      <!-- Título Principal -->
+      <section class="text-center mb-12">
+        <h1
+          class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white from-gray-300 via-gray-500 to-gray-800 drop-shadow-lg mb-10"
+        >
+          Documentación de la <br /> Arquitectura de la Aplicación
+        </h1>
+        <p class="mt-4 text-xl text-gray-500">
+          Este proyecto implementa una arquitectura de microservicios utilizando
+          Spring Boot y otras tecnologías para garantizar una solución
+          escalable, segura y distribuida. Este proyecto sigue principios de
+          diseño como Domain-Driven Design (DDD) y una arquitectura distribuida
+          para garantizar modularidad, escalabilidad y mantenimiento.
+        </p>
+      </section>
+
+      <!-- Imágenes y Descripciones -->
+{
+  images.map((image, index) => (
+    <section
+      class={`mb-16 ${index % 2 === 0 ? "bg-gray-700/25" : "bg-gray-800/45"} p-8 rounded-lg shadow-lg`}
+    >
+      <h2 class="text-3xl font-semibold text-white mb-4">
+        {image.title}
+      </h2>
+      <p class="text-lg text-gray-300 mb-6">{image.description}</p>
+       {/* Verifica si ul existe y renderiza la lista */}
+      {image.ul && (
+        <ul class="list-disc pl-6 mt-4 text-gray-300 mb-10">
+          {(image.ul).map((key) => (
+            <li>{key}</li>
+          ))}
+        </ul>
+      )}
+      <div class="flex justify-center">
+        <img src={image.src} alt={image.title} class={image.class} />
+      </div>
+
+     
+    </section>
+  ))
+}
+
+     <!-- Videos de Demostración -->
+      <section class="mt-16">
+        <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">
+          Videos de Demostración
+        </h2>
+        <div class="flex flex-col items-center space-y-12">
+          {
+            videos.map((video, index) => (
+              <div class="flex flex-col items-center w-full max-w-4xl px-4">
+                <a href={video.url} target="_blank" class="w-full">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    class="w-full h-auto rounded-lg shadow-md object-cover hover:scale-105"
+                  />
+                </a>
+                <h3 class="text-2xl font-semibold text-gray-200 mt-4 mb-2 text-center">
+                  {video.title}
+                </h3>
+                <p class="text-lg text-gray-400 mb-4 text-center">
+                  {video.description}
+                </p>
+                <a
+                  href={video.url}
+                  target="_blank"
+                  class="text-lg font-semibold text-white bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 px-6 py-2 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  Ver Video
+                </a>
+
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+    </main>
+    <Footer/>
+  </body>
+</html>

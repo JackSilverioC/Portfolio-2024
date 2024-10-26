@@ -3,14 +3,7 @@ import Footer from "../components/Footer.astro";
 
 const images = [
   {
-    src: "/projects/microservices-app/RELATION_DB.png",
-    title: "Diagrama de la Relación de las entidades",
-    description:
-      "Este diagrama muestra cómo las tablas están relacionadas entre sí:",
-    class: "max-w-[70%] h-auto rounded-lg shadow-md"
-  },
-  {
-    src: "/projects/microservices-app/MICROSERVICE-DIAGRAM.png",
+    src: "/projects/microservices-app/APP-MICRO.drawio.png",
     title: "Diagrama de los Microservicios",
     description:
       "Este diagrama describe cómo los microservicios interactúan entre sí dentro del sistema:",
@@ -19,42 +12,39 @@ const images = [
     ul: [
       "Servidor de Configuración: para centralizar y gestionar las configuraciones de los microservicios.",
       "Servidor de Descubrimiento (Eureka): para registrar y descubrir los microservicios de manera dinámica.",
-      "API Gateway: para gestionar las solicitudes y redirigirlas a los microservicios correspondientes.",
       "Comunicación Asíncrona con Kafka: para enviar mensajes entre microservicios de forma eficiente y desacoplada.",
-      "Comunicación Síncrona con OpenFeign y RestTemplates: para llamadas directas entre microservicios cuando se requiere una respuesta inmediata.",
-      "Trazabilidad Distribuida con Zipkin y Spring Actuator: para monitorear y rastrear solicitudes a través de múltiples microservicios.",
-      "Seguridad con Keycloak: para proteger las rutas de los microservicios con autenticación y autorización basada en OAuth2.",
       "Infraestructura y Herramientas con Docker y Docker Compose: para crear contenedores y orquestar los servicios en un entorno local o de producción.",
-      "La persistencia de los datos se realiza en MongoDB y PostgreSQL principalmente."
-  ]
+      "La persistencia de los datos se realiza en MongoDB reactivo.",
+      "WebFlux y WebClient: se utilizan para gestionar la comunicación sin bloqueo entre microservicios, maximizando la eficiencia en aplicaciones reactivas."
+    ]
   }
   // Agrega más imágenes y descripciones según sea necesario
 ];
 
 const videos = [
   {
-    url: "https://drive.google.com/file/d/1AGp3xZn223WMQhylRFyyKjR8YEC2msIT/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1NIhirrLBq0UmvBTvtNrY-t47SjsnsLsX/view?usp=sharing",
     title: "Preparación del entorno - Parte 1",
-    thumbnail: "/projects/miniaturas/Min_1.png",
-    description: "Se levanta el archivo de docker-compose para crear los contenedores de las imágenes a utilizar. Asimismo se procede a levantar los servicios en un orden específico para su registro en Eureka Server."
+    thumbnail: "/projects/miniaturas/mini_1.png",
+    description: "Se levanta el archivo de docker-compose para crear los contenedores de las imágenes a utilizar. Se comprueba los registros en Eureka Server."
   },
   {
-    url: "https://drive.google.com/file/d/1-0LpNnztPhQx16hZLMBBQeZ9UlO41T9Z/view?usp=sharing",
-    title: "API Gateway y Keycloak(Oauth 2.0) - Parte 2",
-    thumbnail: "/projects/miniaturas/Min_2.png",
-    description: "Toda solicitud será mediante el redireccionamiento del API Gateway creado, y la autenticación será mediante token obtenido por Keycloak(Oauth2)."
+    url: "https://drive.google.com/file/d/1pK-O2_gmx5SW62HMBLM4qsAoIiRrT1Ec/view?usp=sharing",
+    title: "Microservicio Cliente - Parte 2",
+    thumbnail: "/projects/miniaturas/mini_2.png",
+    description: "Uso de Spring WebFlux y reactive MongoDB para la creación del microservicio."
   },
   {
-    url: "https://drive.google.com/file/d/1uX5TE_R87vhP9TIzuHwErjhcXTdjwKMN/view?usp=sharing",
-    title: "Creación del cliente - Parte 3",
-    thumbnail: "/projects/miniaturas/Min_3.png",
-    description: "Creación del cliente y su persistencia en MongoDB"
+    url: "https://drive.google.com/file/d/1pCnfl6QUzrX7GXKpEWWJUihO8HJxIY1v/view?usp=sharing",
+    title: "Microservicio Tarjeta de Débito - Parte 3",
+    thumbnail: "/projects/miniaturas/mini_3.png",
+    description: "Uso de Spring WebFlux y comunicación con el microservicio Cliente usando WebClient, y reactive MongoDB para la creación del microservicio."
   },
   {
-    url: "https://drive.google.com/file/d/1qrXEDl1Ac-EgEaqZUYmVUpyFwS6IkOQM/view?usp=sharing",
-    title: "Comunicación síncrona y asíncrona entre microservicios- Parte 4",
-    thumbnail: "/projects/miniaturas/Min_4.png",
-    description: 'Se configuró la comunicación síncrona por Feign (Token en el header incluido), y el consumo de "topics" usando Kafka. Para el envío de correos se usó MailDev y para el tracing de las solicitudes se usó Zipkin.'
+    url: "https://drive.google.com/file/d/1MD9n8aPz2mFlg3b2xCM7vpegjaQOYTkY/view?usp=sharing",
+    title: "Microservicio Transacción - Parte 4",
+    thumbnail: "/projects/miniaturas/mini_4.png",
+    description: 'Uso de Spring WebFlux, y reactive MongoDB para la creación del microservicio. Asimismo se usó Kafka para actualizar las cuentas de los clientes de forma asíncrona al momento de hacer una transacción.'
   }
 ];
 ---
@@ -101,19 +91,19 @@ const videos = [
   <p class="mt-4 text-xl text-gray-500">
     Este proyecto implementa una arquitectura de microservicios utilizando
     Spring Boot y otras tecnologías para garantizar una solución escalable,
-    segura y distribuida. Este proyecto sigue principios de diseño como
-    Domain-Driven Design (DDD) y una arquitectura distribuida para garantizar
-    modularidad, escalabilidad y mantenimiento.
+    segura y distribuida. Aplicando la programación reactiva usando Spring Webflux, principios SOLID y patrones de diseño como Event-Driven,
+    Strategy, Singleton e inyección de dependencias, se diseñó altamente desacoplado y escalable,
+    optimizando la flexibilidad, mantenibilidad y eficiencia del sistema.
   </p>
 
   <!-- Enlace al Proyecto -->
 <div class="mt-8">
   <a
-    href="https://github.com/JackSilverioC/microservices-app"
+    href="https://github.com/JackSilverioC/microservices-app-transaction"
     target="_blank"
     class="inline-block border-2 border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-full text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
   >
-    Ver Repositorio: https://github.com/JackSilverioC/microservices-app
+    Ver Repositorio: https://github.com/JackSilverioC/microservices-app-transaction
   </a>
 </div>
 

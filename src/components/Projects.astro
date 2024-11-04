@@ -26,6 +26,11 @@ const TAGS = {
     class: "bg-white text-sky-800",
     icon: DatabaseIcon
   },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-white text-sky-800",
+    icon: DatabaseIcon
+  },
   SPRING: {
     name: "Spring Boot",
     class: "bg-green-600 text-white",
@@ -96,8 +101,33 @@ const TAGS = {
     class: "bg-orange-600 text-white",
     icon: SwaggerIcon
   },
+  GRAFANA: {
+    name: "Grafana",
+    class: "bg-orange-600 text-white",
+    icon: SwaggerIcon
+  },
 };
 const PROJECTS = [
+  {
+    title: "Microservicios con Spring Boot",
+    description:
+      "Este proyecto de microservicios en Spring Boot implementa el patrón Circuit Breaker con Resilience4j para asegurar la resiliencia y manejar fallos sin afectar el rendimiento. La documentación se gestiona con Swagger y OpenAPI, ofreciendo una API REST interactiva y accesible para facilitar el desarrollo y la integración. Para la observabilidad, Grafana se complementa con Prometheus para métricas, Loki para logs centralizados, y Tempo para trazas distribuidas, creando una infraestructura robusta que garantiza la disponibilidad y el monitoreo efectivo del sistema.",
+    link: "/Microservices-App",
+    github: "https://github.com/JackSilverioC/microservices-app-order",
+    image: "/projects/project10.png",
+    tags: [
+        TAGS.JAVA,
+        TAGS.SPRING,
+        TAGS.MONGODB,
+        TAGS.DOCKER,
+        TAGS.EUREKA,
+        TAGS.APIGATEWAY,
+        TAGS.KEYCLOAK,
+        TAGS.MYSQL,
+        TAGS.SWAGGER,
+        TAGS.GRAFANA
+    ]
+  },
   {
     title: "Aplicación de microservicios reactivos con Spring Boot",
     description:

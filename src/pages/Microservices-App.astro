@@ -1,0 +1,182 @@
+---
+import Footer from "../components/Footer.astro";
+
+const images = [
+  {
+    src: "/projects/microservices-app/APP-MICRO-NEW.drawio.png",
+    title: "Diagrama de los Microservicios",
+    description:
+      "Este diagrama describe cómo los microservicios interactúan entre sí dentro del sistema:",
+    class: "max-w-[100%] h-auto shadow-md",
+    ul: [
+      "Implementación del servicio de productos, que gestiona la información sobre los productos en el sistema.",
+      "Implementación del servicio de órdenes, que se encarga de procesar y manejar las órdenes de compra.",
+      "Implementación del servicio de inventario, responsable de la gestión del inventario de productos.",
+      "El API Gateway usa Spring Cloud Gateway para enrutar y balancear las solicitudes entrantes hacia los diferentes microservicios.",
+      "El servicio de notificaciones (Notification Service) consume mensajes de los tópicos de Kafka y utiliza JavaMailSender para enviar correos electrónicos automáticos.",
+      "Los microservicios se aseguran usando Keycloak y el protocolo OAuth2 para manejar la autenticación y autorización, protegiendo el acceso a los recursos del sistema.",
+      "Implementación de un Circuit Breaker para mejorar la resiliencia de la arquitectura ante fallos, garantizando la continuidad del servicio en caso de interrupciones.",
+      "Implementación de una arquitectura orientada a eventos usando Kafka para manejar la comunicación asíncrona entre microservicios, facilitando la escalabilidad y la consistencia eventual de los datos.",
+      "Implementación de la observabilidad utilizando Grafana y otras herramientas del Grafana Stack para monitoreo, análisis en tiempo real y rastreo de eventos en los microservicios."
+    ]
+  }
+  // Agrega más imágenes y descripciones según sea necesario
+];
+
+const videos = [
+  {
+    url: "https://drive.google.com/file/d/1NMW6_n5sHJ65qc1RNhnaOKmOjAvw8iDz/view?usp=sharing",
+    title: "OAuth2.0 con Keycloak y Open API - Parte 1",
+    thumbnail: "/projects/miniaturas/p3_min_1.png",
+    description:
+      "Los microservicios se aseguran usando Keycloak y el protocolo OAuth2 para manejar la autenticación y autorización, protegiendo el acceso a los recursos del sistema. La API REST se documenta usando Open API, facilitando el acceso a la documentación para los desarrolladores y clientes."
+  },
+  {
+    url: "https://drive.google.com/file/d/1nv0WH_Y7SICSExWH1UYPC4eKDcGdTbAU/view?usp=sharing",
+    title: "Patrón Circuit Breaker y Resilience4J - Parte 2",
+    thumbnail: "/projects/miniaturas/p3_min_2.png",
+    description:
+      "Implementación de un Circuit Breaker para mejorar la resiliencia de la arquitectura ante fallos, garantizando la continuidad del servicio en caso de interrupciones."
+  },
+  {
+    url: "https://drive.google.com/file/d/1eYOzknEvre6yWbp7JjocARzxAw2CHU-k/view?usp=sharing",
+    title: "Kafka y Java Mail Sender - Parte 3",
+    thumbnail: "/projects/miniaturas/p3_min_3.png",
+    description: "Implementación de una arquitectura orientada a eventos usando Kafka para manejar la comunicación asíncrona entre microservicios, facilitando la escalabilidad y la consistencia eventual de los datos. Se utiliza JavaMailSender para enviar correos electrónicos desde el sistema, facilitando notificaciones automáticas desde los microservicios."
+  },
+  {
+    url: "https://drive.google.com/file/d/1oCU3XBkOUJIqSgRTz0AlZ_JjzOPMTCrV/view?usp=sharing",
+    title: "Grafana Stack - Parte 4",
+    thumbnail: "/projects/miniaturas/p3_min_4.png",
+    description:
+      'Implementación de la observabilidad utilizando Grafana y otras herramientas del Grafana Stack para monitoreo, análisis en tiempo real y rastreo de eventos en los microservicios.'
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Documentación de Arquitectura</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <style>
+      /* Estilos para el botón de volver atrás */
+      .back-button {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        background-color: #1e3a8a;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+      .back-button:hover {
+        background-color: #3b82f6; /* Color azul más claro al pasar el cursor */
+      }
+    </style>
+  </head>
+  <body class="bg-neutral-950">
+    <a href="/" class="back-button">Volver Atrás</a>
+    <div
+      class="absolute top-0 z-[-2] h-screen w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <main class="max-w-7xl mx-auto p-8">
+      <!-- Título Principal -->
+      <section class="text-center mb-12">
+        <h1
+          class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white from-gray-300 via-gray-500 to-gray-800 drop-shadow-lg mb-10"
+        >
+          Documentación de la <br /> Arquitectura de la Aplicación
+        </h1>
+        <p class="mt-4 text-xl text-gray-500">
+          Este proyecto de microservicios en Spring Boot implementa el patrón
+          Circuit Breaker con Resilience4j para asegurar la resiliencia y
+          manejar fallos sin afectar el rendimiento. La documentación se
+          gestiona con Swagger y OpenAPI, ofreciendo una API REST interactiva y
+          accesible para facilitar el desarrollo y la integración. Para la
+          observabilidad, Grafana se complementa con Prometheus para métricas,
+          Loki para logs centralizados, y Tempo para trazas distribuidas,
+          creando una infraestructura robusta que garantiza la disponibilidad y
+          el monitoreo efectivo del sistema.
+        </p>
+
+        <!-- Enlace al Proyecto -->
+        <div class="mt-8">
+          <a
+            href="https://github.com/JackSilverioC/microservices-app-order"
+            target="_blank"
+            class="inline-block border-2 border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-full text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
+          >
+            Ver Repositorio: https://github.com/JackSilverioC/microservices-app-order
+          </a>
+        </div>
+      </section>
+
+      <!-- Imágenes y Descripciones -->
+      {
+        images.map((image, index) => (
+          <section
+            class={`mb-16 ${index % 2 === 0 ? "bg-gray-700/25" : "bg-gray-800/45"} p-8 rounded-lg shadow-lg`}
+          >
+            <h2 class="text-3xl font-semibold text-white mb-4">
+              {image.title}
+            </h2>
+            <p class="text-lg text-gray-300 mb-6">{image.description}</p>
+            {/* Verifica si ul existe y renderiza la lista */}
+            {image.ul && (
+              <ul class="list-disc pl-6 mt-4 text-gray-300 mb-10">
+                {image.ul.map((key) => (
+                  <li>{key}</li>
+                ))}
+              </ul>
+            )}
+            <div class="flex justify-center">
+              <img src={image.src} alt={image.title} class={image.class} />
+            </div>
+          </section>
+        ))
+      }
+
+      <!-- Videos de Demostración -->
+      <section class="mt-16">
+        <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">
+          Videos de Demostración
+        </h2>
+        <div class="flex flex-col items-center space-y-12">
+          {
+            videos.map((video, index) => (
+              <div class="flex flex-col items-center w-full max-w-4xl px-4">
+                <a href={video.url} target="_blank" class="w-full">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    class="w-full h-auto rounded-lg shadow-md object-cover hover:scale-105"
+                  />
+                </a>
+                <h3 class="text-2xl font-semibold text-gray-200 mt-4 mb-2 text-center">
+                  {video.title}
+                </h3>
+                <p class="text-lg text-gray-400 mb-4 text-center">
+                  {video.description}
+                </p>
+                <a
+                  href={video.url}
+                  target="_blank"
+                  class="text-lg font-semibold text-white bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 px-6 py-2 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                  Ver Video
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
